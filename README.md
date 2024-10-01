@@ -1,81 +1,38 @@
-# Turborepo starter
+# sampled-in
 
-This is an official starter Turborepo.
+## Overview
 
-## Using this example
+sampled-in is a proof-of-concept web application for tracking and exploring music sampling relationships. It allows users to document and discover how songs sample or are sampled in other tracks.
 
-Run the following command:
+**Note:** This project is currently a work in progress and not ready for production use.
 
-```sh
-npx create-turbo@latest
-```
+## Tech Stack
 
-## What's inside?
+- Next.js
+- TypeScript
+- Prisma
+- PostgreSQL
+- Shadcn UI
+- Supabase
 
-This Turborepo includes the following packages/apps:
+## Features (Planned)
 
-### Apps and Packages
+- Add and edit songs
+- Establish sampling relationships between songs
+- View song details and their sampling connections
+- User authentication
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## Getting Started
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+1. Clone the repository
+2. Install dependencies: `pnpm install`
+3. Set up your environment variables (see `.env.example`)
+4. Run the development server: `pnpm dev`
 
-### Utilities
+## Contributing
 
-This Turborepo has some additional tools already setup for you:
+As this is a proof of concept, we're not currently accepting contributions. Feel free to fork the project for your own explorations.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## License
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+[MIT](https://choosealicense.com/licenses/mit/)

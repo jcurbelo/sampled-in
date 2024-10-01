@@ -6,6 +6,7 @@
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
     "build": "next build",
+    "build:turbo": "turbo build",
     "start": "next start",
     "lint": "next lint"
   },
