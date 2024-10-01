@@ -1,0 +1,21 @@
+{
+  "name": "@sampled-in/db",
+  "version": "1.0.0",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "private": true,
+  "scripts": {
+    "generate": "pnpm prisma generate",
+    "migrate": "prisma migrate dev",
+    "pull": "prisma db pull",
+    "build": "tsc -p ./tsconfig.build.json",
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "devDependencies": {
+    "prisma": "^5.20.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "ts-node": "^10.9.2"
+  }
+}

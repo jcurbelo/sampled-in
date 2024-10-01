@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "sampled-in",
   "private": true,
   "scripts": {
     "build": "turbo build",
@@ -8,7 +8,14 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
+    "@next/eslint-plugin-next": "^14.2.14",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.6",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
     "turbo": "^2.0.7",
     "typescript": "^5.4.5"
   },
