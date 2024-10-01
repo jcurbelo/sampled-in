@@ -1,36 +1,29 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import prisma from '@/lib/db';
 
-interface SampleSong {
-  id: string;
-  name: string;
-  artist: string;
-  releaseDate: string;
-}
+export default async function SampleDetails({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const slug = params.slug;
+  const originalSample = await prisma.song.findUnique({
+    where: {
+      slug,
+    },
+    include: {
+      samples: true,
+    },
+  });
 
-const sampleSongs: SampleSong[] = [
-  {
-    id: '1',
-    name: 'Original Sample 1',
-    artist: 'Artist A',
-    releaseDate: '2020-01-15',
-  },
-  {
-    id: '2',
-    name: 'Original Sample 2',
-    artist: 'Artist B',
-    releaseDate: '2019-11-20',
-  },
-  {
-    id: '3',
-    name: 'Original Sample 3',
-    artist: 'Artist C',
-    releaseDate: '2021-03-05',
-  },
-];
-
-export default function SampleDetails({ params }: { params: { id: string } }) {
-  const sampleId = params.id;
+  const sampledSongs = await prisma.song.findMany({
+    where: {
+      id: {
+        in: originalSample?.samples?.map((sample) => sample?.sampledInId),
+      },
+    },
+  });
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -48,17 +41,28 @@ export default function SampleDetails({ params }: { params: { id: string } }) {
 
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold mb-6">
-          Sample Details for ID: {sampleId}
+          Sample Details for: {originalSample?.title}
         </h1>
         <h2 className="text-2xl font-semibold mb-4">
           Songs using this sample:
         </h2>
         <ul className="space-y-4">
-          {sampleSongs.map((song) => (
+          {sampledSongs.map((song) => (
             <li key={song.id} className="bg-white shadow rounded-lg p-4">
-              <h3 className="text-xl font-semibold">{song.name}</h3>
+              <h3 className="text-xl font-semibold">{song.title}</h3>
               <p className="text-gray-600">Artist: {song.artist}</p>
-              <p className="text-gray-600">Released: {song.releaseDate}</p>
+              <p className="text-gray-600">
+                Released: {song.released.getFullYear()}
+              </p>
+              <div className="mt-2 space-x-2">
+                <a
+                  href={song.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline">
+                  Link
+                </a>
+              </div>
             </li>
           ))}
         </ul>

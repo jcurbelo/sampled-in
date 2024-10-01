@@ -23,7 +23,7 @@ export default function RootLayout({
               <div className="flex justify-between h-16">
                 <div className="flex-shrink-0 flex items-center">
                   <a href="/" className="text-xl font-bold">
-                    Sample List
+                    Samples List
                   </a>
                 </div>
                 <div className="flex items-center">

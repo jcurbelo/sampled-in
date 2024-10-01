@@ -8,7 +8,7 @@
     "generate": "pnpm prisma generate",
     "migrate": "prisma migrate dev",
     "pull": "prisma db pull",
-    "build": "tsc -p ./tsconfig.build.json",
+    "build": "tsc -p ./tsconfig.json",
     "seed": "ts-node prisma/seed.ts"
   },
   "devDependencies": {
