@@ -12,10 +12,12 @@ export async function GET(request: Request) {
 
   if (tokenHash) {
     const supabase = createClient();
-    await supabase.auth.verifyOtp({
+    const { error, data } = await supabase.auth.verifyOtp({
       token_hash: tokenHash,
       type: 'magiclink',
     });
+
+    console.log({ error, data });
   }
 
   if (redirectTo) {

@@ -2,14 +2,14 @@
 
 // import { useActionState } from 'react';
 import { useFormState } from 'react-dom';
-import { ActionResponse, signInWithEmail } from '@/app/actions';
+import { ActionResponse, signInWithEmailAction } from '@/app/actions';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { SubmitButton } from '@/components/ui/submit-button';
 
 export default function SignIn() {
   const [state, formAction] = useFormState<ActionResponse, FormData>(
-    signInWithEmail,
+    signInWithEmailAction,
     {
       error: undefined,
       message: undefined,

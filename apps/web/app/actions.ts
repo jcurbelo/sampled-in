@@ -1,6 +1,7 @@
 'use server';
 
 import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 
 export type ActionResponse = {
@@ -8,7 +9,7 @@ export type ActionResponse = {
   error?: string;
 };
 
-export const signInWithEmail = async (
+export const signInWithEmailAction = async (
   state: ActionResponse,
   payload: FormData
 ): Promise<ActionResponse> => {
@@ -32,4 +33,10 @@ export const signInWithEmail = async (
   }
 
   return { message: 'Email sent.' };
+};
+
+export const signOutAction = async () => {
+  const supabase = createClient();
+  await supabase.auth.signOut();
+  return redirect('/');
 };
